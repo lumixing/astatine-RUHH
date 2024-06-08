@@ -12,8 +12,8 @@ Chunk :: struct {
 
 chunk_fill :: proc(chunk: ^Chunk) {
     for &block in chunk.blocks {
-        // block = rand.choice_enum(Block)
-        block = .DIRT
+        block = rand.choice_enum(Block)
+        // block = .DIRT
     }
 }
 
@@ -25,7 +25,6 @@ chunk_render :: proc(chunk: Chunk) {
             x := BLOCK_SIZE * (chunk.position.x * CHUNK_SIZE + i32(rbx))
             y := BLOCK_SIZE * (chunk.position.y * CHUNK_SIZE + i32(rby))
             color := block_to_color(block)
-            // rl.DrawRectangle(x, y, BLOCK_SIZE, BLOCK_SIZE, color)
             draw_rect({f32(x), f32(y)}, {BLOCK_SIZE, BLOCK_SIZE}, color_v4(color))
         }
     }

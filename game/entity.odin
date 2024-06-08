@@ -45,7 +45,6 @@ new_entity :: proc($T: typeid, world: ^World) -> ^T {
 entity_render :: proc(entity: Entity) {
     switch ent in entity.type {
     case ^Player:
-        // rl.DrawRectangleV(ent.position, ent.size, ent.color)
         draw_rect(ent.position, ent.size, color_v4(ent.color))
     }
 }

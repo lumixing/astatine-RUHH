@@ -30,7 +30,6 @@ glfw_init :: proc() {
 
     glfw.MakeContextCurrent(window)
     glfw.SwapInterval(1)
-    glfw.SetKeyCallback(window, key_callback)
 
     gl.load_up_to(4, 6, glfw.gl_set_proc_address)
 }
