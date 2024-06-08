@@ -9,6 +9,7 @@ WIDTH :: 800
 HEIGHT :: 600
 
 camera_speed: f32 = 5
+camera_zoom: f32 = 2
 render_vec := Vec2{WIDTH, HEIGHT}
 
 main :: proc() {
@@ -30,7 +31,12 @@ main :: proc() {
         w, h := glfw.GetWindowSize(window)
         render_vec = {f32(w), f32(h)}
         
+        if is_key_pressed(.ESCAPE) {
+            running = false
+        }
+
         camera := camera_new(f32(w), f32(h))
+        camera *= glm.mat4Scale({camera_zoom, camera_zoom, 0})
         player_input(player)
         entity_physics(player, world.colls[:])
 

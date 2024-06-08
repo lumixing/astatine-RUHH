@@ -22,12 +22,14 @@ glfw_init :: proc() {
         panic("GLFW ERROR: could not init glfw")
     }
 
-    window = glfw.CreateWindow(WIDTH, HEIGHT, "WTESTING", nil, nil)
+    window = glfw.CreateWindow(WIDTH, HEIGHT, "astatine (indev)", nil, nil)
 
     if window == nil {
         panic("GLFW ERROR: could not create window")
     }
 
+    // hardcode: center window
+    glfw.SetWindowPos(window, (1920-800)/2, (1080-600)/2)
     glfw.MakeContextCurrent(window)
     glfw.SwapInterval(1)
 
