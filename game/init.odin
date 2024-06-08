@@ -51,7 +51,7 @@ gl_init :: proc() {
 
     gl.GenBuffers(1, &sbo)
     gl.BindBufferBase(gl.SHADER_STORAGE_BUFFER, 0, sbo)
-    gl.BufferData(gl.SHADER_STORAGE_BUFFER, size_of(Transform) * MAX_TRANSFORMS, raw_data(transforms), gl.DYNAMIC_DRAW)
+    gl.BufferData(gl.SHADER_STORAGE_BUFFER, size_of(TransformRect) * MAX_TRANSFORMS, raw_data(transforms), gl.DYNAMIC_DRAW)
     
     gl.Enable(gl.BLEND)
     gl.BlendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
