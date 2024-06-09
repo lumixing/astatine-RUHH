@@ -50,9 +50,9 @@ camera_new :: proc(width, height: f32) -> glm.mat4 {
     return glm.mat4Ortho3d(0, width, height, 0, -1, 1)
 }
 
-camera_set_position :: proc(camera: glm.mat4, position: Vec2) -> glm.mat4 {
+camera_get_view :: proc(camera: glm.mat4, position: Vec2) -> glm.mat4 {
     view := glm.identity(glm.mat4) * glm.mat4Translate({-position.x, -position.y, 0}+v2_extend(render_vec)/2*1/camera_zoom)
-    return camera * view
+    return view
 }
 
 camera_apply :: proc(camera: ^glm.mat4) {

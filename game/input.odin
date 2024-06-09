@@ -6,6 +6,15 @@ is_key_pressed :: proc(key: KeyCode) -> bool {
     return glfw.GetKey(window, i32(key)) == 1
 }
 
+is_mouse_pressed :: proc(mouse: MouseButton) -> bool {
+    return glfw.GetMouseButton(window, i32(mouse)) == 1
+}
+
+MouseButton :: enum {
+    LEFT,
+    RIGHT,
+}
+
 KeyCode :: enum {
     SPACE         = 32,
     APOSTROPHE    = 39,
